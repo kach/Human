@@ -1,6 +1,20 @@
 window.addEventListener("load", function() {
 	var l = Ladda.create( document.getElementById("search-button") );
 
+	var plusone = function(obj) {
+		if (!localhost[this["data-did"]]) {
+			var l = Latta.create(this);
+			l.start();
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", "/plus?id="+this["data-did"], false);
+			xhr.onload = function() {
+				l.stop();
+				localhost[this["data-did"]] = "I haz ninja'd.";
+			}
+			xhr.send();
+		}
+	}
+
 	var clickhandler = function() {
 		l.start();
 		var xhr = new XMLHttpRequest();
