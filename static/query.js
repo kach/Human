@@ -1,4 +1,4 @@
-window.onload = function() {
+window.addEventListener("load", function() {
 	var l = Ladda.create( document.getElementById("click") );
 	document.getElementById("click").onclick = function() {
 		l.start();
@@ -7,4 +7,4 @@ window.onload = function() {
 			l.stop();
 		}, 2000);
 	}
-};
+}, false);

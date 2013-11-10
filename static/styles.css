@@ -38,3 +38,25 @@ p {
 p.dropcap:first-letter {
 	font-size: 30px;
 }
+
+textarea {
+	border: none;
+	border-radius: 10px;
+	background-color: #eee;
+	resize:none;
+	padding:10px;
+	font-family: "Open Sans", sans-serif;
+	font-size: 18px;
+	width:50%;
+	margin: 10px;
+	height: 150px;
+}
+
+button {
+	margin: 10px;
+}
+
+textarea:focus {
+	outline: none;
+	background-color: #ddd;
+}
