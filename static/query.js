@@ -15,7 +15,8 @@ window.addEventListener("load", function() {
 				} else {
 					document.getElementById("search-result").innerHTML = "";
 					t.forEach(function(def) {
-						document.getElementById("search-result").innerHTML += "<a class='plus' href='/up?id="+def[1]+"&term="+document.getElementById("search-term").value+"'>+"+def[2]+"</a><blockquote>"+def[0]+"</blockquote>";
+						var c = new Showdown.converter();
+						document.getElementById("search-result").innerHTML += "<a class='plus' href='/up?id="+def[1]+"&term="+document.getElementById("search-term").value+"'>+"+def[2]+"</a><blockquote>"+c.makeHtml(def[0])+"</blockquote>";
 					})
 				}
 			} else {
