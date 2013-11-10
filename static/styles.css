@@ -56,9 +56,8 @@ textarea {
 	height: 150px;
 }
 
-button.plusone {
+button {
 	margin: 10px;
-	width:50px !important;
 }
 
 textarea:focus, input[type="text"]:focus {
