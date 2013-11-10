@@ -12,16 +12,18 @@
 	</head>
 	<body>
 		<div id="header">
-			<h1>Human | Humanist Documentation</h1>
+			<h1>Hu&middot;<strong>man</strong> | Humanist Documentation</h1>
 		</div>
 		<div id="pagewrapper">
 			<p class="dropcap">UNIX was built by hackers. For hackers, the source is the documentation. <code class="language-bash">man</code> was designed to avoid straight answers. So how do I list hidden files in a directory with <code class="language-bash">ls</code>? What's <code class="language-bash">grep</code>? How do I get out of <code class="language-bash">less</code>? Developers waste precious development time Googling around for questions that should have obvious answers.
 
-			<p>Enter Human. Human believes in instant code snippets. No more following dozens of failed StackOverflow links: just use the handy <code class="language-bash">human</code> command and get an instant answer.
+			<p>Enter Human. Human believes in instant code snippets. No more following dozens of failed StackOverflow links, or scrolling through pages of <code class="language-bash">man</code>. Just replace it with <code class="language-bash">human</code> command and get an FAQ written by and for developers like you.
 
-			<textarea></textarea>
-			<textarea></textarea>
-			<div><button id="click" class="ladda-button" data-style="zoom-in" data-color="mint"><span class="ladda-label">Submit</span></button></div>
+			<h2>Try it out!</h2>
+			<p>Search for a UNIX command to see the Human entry before.
+
+			<input id="search-term" type="text" name="question" placeholder="How do you fly?"/> <button id="search-button" class="ladda-button" data-style="zoom-in" data-color="mint" data-size="s"><span class="ladda-label">Search</span></button>
+			<div id="search-result"></div>
 		</div>
 	</body>
 </html>

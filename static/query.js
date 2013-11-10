@@ -1,10 +1,13 @@
 window.addEventListener("load", function() {
-	var l = Ladda.create( document.getElementById("click") );
-	document.getElementById("click").onclick = function() {
+	var l = Ladda.create( document.getElementById("search-button") );
+	document.getElementById("search-button").onclick = function() {
 		l.start();
-		setTimeout(function() {
-			this["data-color"] = "red";
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "/api/bupkis", false);
+		xhr.onload = function() {
 			l.stop();
-		}, 2000);
+			xhr.responseText;
+		};
+		xhr.send();
 	}
 }, false);
