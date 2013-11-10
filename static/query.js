@@ -27,7 +27,7 @@ window.addEventListener("load", function() {
 			l.stop();
 			if (xhr.status === 200) {
 				//document.getElementById("search-result").innerHTML = xhr.responseText;
-				var t = JSON.parse(xhr.responseText.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
+				var t = JSON.parse(xhr.responseText);
 				if (t.length === 0) {
 					document.getElementById("search-result").innerHTML = "<h3>Oh noes.</h3>We don't have a Human entry for "+ document.getElementById("search-term").value +" yet! Feel free to define it.";
 				} else {
