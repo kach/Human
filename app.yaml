@@ -13,7 +13,7 @@ handlers:
   static_files: static/index.html
   upload: static/index.html
 
-- url: /
+- url: /static
   static_dir: static
 
 - url: .*
