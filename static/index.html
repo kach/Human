@@ -32,6 +32,17 @@
 
 			<p>Enter Human. Human believes in instant code snippets. No more following dozens of failed StackOverflow links, or scrolling through pages of <code class="language-bash">man</code>. Just replace it with <code class="language-bash">human</code> command and get an FAQ written by and for developers like you.
 
+			<h2>Install</h2>
+			Using Sudo (root priviledges needed):
+			<pre><code class="language-bash">sudo curl "http://humanual-sv.appspot.com/static/install" -o /usr/bin/human</code></pre>
+			As a non-root user:
+<pre><code class="language-bash">cd ~/
+echo "PATH=\"$PATH:~/human\"" >> ~/.profile
+mkdir human
+cd human
+curl "http://humanual-sv.appspot.com/static/install" -o human
+chmod +x ~/human/human</code></pre>
+
 			<h2>Try it out!</h2>
 			<p>Search for a UNIX command to see the Human entry before.
 
