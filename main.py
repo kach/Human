@@ -42,12 +42,9 @@ class GenDef(webapp2.RequestHandler):
 			self.redirect("/")
 		else:
 			d.definition = self.request.get("definition")
-			if len(d.definition) > 500:
-				self.redirect("/#"+self.request.get("term"))
-			else:
-				d.ranking = 0
-				d.put()
-				self.redirect("/#"+self.request.get("term"))
+			d.ranking = 0
+			d.put()
+			self.redirect("/#"+self.request.get("term"))
 
 class Ranking(webapp2.RequestHandler):
 	def get(self):
