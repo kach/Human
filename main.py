@@ -51,7 +51,7 @@ class Ranking(webapp2.RequestHandler):
 		d = Definition.get_by_id(int(self.request.get("id")))
 		d.ranking = d.ranking + 1
 		d.put()
-		self.redirect("/#"+self.request.get("term"))
+		self.response.write(str(d.ranking))
 		
 
 app = webapp2.WSGIApplication([
