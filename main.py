@@ -22,11 +22,12 @@ from google.appengine.ext import db
 class Definition(db.Model):
 	term = db.StringProperty()
 	definition = db.TextProperty()
+	ranking = db.IntegerProperty()
 
 class APIHandler(webapp2.RequestHandler):
     def get(self):
     	q = db.Query(Definition)
-    	q.filter("term =", self.request.get("term"))
+    	q.filter("term =", self.request.get("term")).order("-ranking")
     	x = []
     	for d in q.run():
     		x.append(d.definition)
@@ -37,6 +38,7 @@ class GenDef(webapp2.RequestHandler):
 		d = Definition()
 		d.term = self.request.get("term")
 		d.definition = self.request.get("definition")
+		d.ranking = 0
 		d.put()
 		self.response.write("true")
 
