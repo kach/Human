@@ -64,3 +64,26 @@ textarea:focus, input[type="text"]:focus {
 	outline: none;
 	background-color: #ddd;
 }
+
+blockquote {
+	margin:40px;
+}
+
+a.plus {
+	display: table-cell;
+	height: 20px;
+	border-radius: 5px;
+	padding: 3px;
+	background-color:#eee;
+	text-decoration: none;
+	color:#bbb;
+	float:left;
+	margin-right:10px;
+}
+a.plus:hover {
+	color:#ddd;
+}
+
+h2 {
+	padding-top: 30px;
+}

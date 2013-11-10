@@ -16,6 +16,7 @@
 #
 import webapp2
 import json
+import commands
 
 from google.appengine.ext import db
 
@@ -30,19 +31,31 @@ class APIHandler(webapp2.RequestHandler):
     	q.filter("term =", self.request.get("term")).order("-ranking")
     	x = []
     	for d in q.run():
-    		x.append(d.definition)
+    		x.append([d.definition, d.key().id(), d.ranking])
         self.response.write(json.dumps(x))
 
 class GenDef(webapp2.RequestHandler):
 	def post(self):
 		d = Definition()
 		d.term = self.request.get("term")
-		d.definition = self.request.get("definition")
-		d.ranking = 0
+		if d.term not in commands.COMMANDS:
+			self.redirect("/")
+		else:
+			d.definition = self.request.get("definition")
+			d.ranking = 0
+			d.put()
+			self.redirect("/#"+self.request.get("term"))
+
+class Ranking(webapp2.RequestHandler):
+	def get(self):
+		d = Definition.get_by_id(int(self.request.get("id")))
+		d.ranking = d.ranking + 1
 		d.put()
-		self.response.write("true")
+		self.redirect("/#"+self.request.get("term"))
+		
 
 app = webapp2.WSGIApplication([
     ('/api', APIHandler),
-    ('/gen', GenDef)
+    ('/gen', GenDef),
+    ('/up', Ranking)
 ], debug=True)
