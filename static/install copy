@@ -23,3 +23,5 @@ try:
 	k.close()
 except:
 	print "We had an error fetching the human page for "+comm+".\n Please check your spelling and internet connection."
+
+#uneccecary comment
