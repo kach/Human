@@ -15,11 +15,31 @@
 # limitations under the License.
 #
 import webapp2
+import json
 
-class MainHandler(webapp2.RequestHandler):
+from google.appengine.ext import db
+
+class Definition(db.Model):
+	term = db.StringProperty()
+	definition = db.TextProperty()
+
+class APIHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Hello world!')
+    	q = db.Query(Definition)
+    	q.filter("term =", self.request.get("term"))
+    	x = []
+    	for d in q.run():
+    		x.append(d.definition)
+        self.response.write(json.dumps(x))
+
+class GenDef(webapp2.RequestHandler):
+	def post(self):
+		d = Definition()
+		d.term = self.request.get("term")
+		d.definition = self.request.get("definition")
+		d.put()
+		self.response.write("true")
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/api', APIHandler)
 ], debug=True)
