@@ -41,5 +41,6 @@ class GenDef(webapp2.RequestHandler):
 		self.response.write("true")
 
 app = webapp2.WSGIApplication([
-    ('/api', APIHandler)
+    ('/api', APIHandler),
+    ('/gen', GenDef)
 ], debug=True)

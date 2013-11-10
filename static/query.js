@@ -3,7 +3,7 @@ window.addEventListener("load", function() {
 	document.getElementById("search-button").onclick = document.getElementById("search-term").onchange = function() {
 		l.start();
 		var xhr = new XMLHttpRequest();
-		xhr.open("GET", "/api?query="+document.getElementById("search-term").value, false);
+		xhr.open("GET", "/api?term="+document.getElementById("search-term").value, false);
 		xhr.onload = function() {
 			setTimeout(l.stop, 1000);
 			if (xhr.status === 200) {
